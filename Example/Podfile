@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'TRMosaicLayout_Example' do
+  pod 'TRMosaicLayout', :path => '../'
+
+  target 'TRMosaicLayout_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
