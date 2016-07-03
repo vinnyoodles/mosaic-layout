@@ -74,17 +74,22 @@ extension TRCollectionViewController: TRMosaicLayoutDelegate {
 
 **The cell's aren't aligned properly**
 * Make sure the views you are adding to the cell have the correct frame
-  ```
+ 
+```
   let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath)
 let imageView = UIImageView(image: image)
   imageView.frame = cell.frame
   cell.backgroundView = imageView
   return cell
-  ```
+```
 
-  **Something else isn't working properly**
-  * Use github's issue reporter on the right, this will you be your best bet as I'm on Github fairly regularly
-  * Send me an email vinnyoodles@gmail.com
+**Getting a `nil while unwrapping` error**
+* Make sure you set the delegate of `TRMosaicLayout` to your `collectionViewController`
+* `mosaicLayout.delegate = self`
+
+**Something else isn't working properly**
+* Use github's issue reporter on the right, this will you be your best bet as I'm on Github fairly regularly
+* Send me an email vinnyoodles@gmail.com
 
 ## Updates
   * 0.1.0 First release on CocoaPods
