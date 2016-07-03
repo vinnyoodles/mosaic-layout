@@ -1,0 +1,16 @@
+PODS:
+  - TRMosaicLayout (0.1.0)
+
+DEPENDENCIES:
+  - TRMosaicLayout (from `../`)
+
+EXTERNAL SOURCES:
+  TRMosaicLayout:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  TRMosaicLayout: 2da911a68c7166fab8aa0f1c507bb6eaaf7843d7
+
+PODFILE CHECKSUM: 50254368379184c1bee3ab77c98376fd46a20b1c
+
+COCOAPODS: 1.0.1

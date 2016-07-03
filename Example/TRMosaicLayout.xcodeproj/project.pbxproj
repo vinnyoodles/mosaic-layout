@@ -9,12 +9,12 @@
 /* Begin PBXBuildFile section */
 		3864DD5CAB9C181CDB893E9A /* Pods_TRMosaicLayout_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C3C84ADD8703237720DAA60 /* Pods_TRMosaicLayout_Example.framework */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
-		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 		71F849A951C8BDD4723D7D28 /* Pods_TRMosaicLayout_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C23F83B87EC869807E2B5656 /* Pods_TRMosaicLayout_Tests.framework */; };
+		BF2FE1891D2753AF00094919 /* TRCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2FE1881D2753AF00094919 /* TRCollectionViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -23,6 +23,27 @@
 			containerPortal = 607FACC81AFB9204008FA782 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 607FACCF1AFB9204008FA782;
+			remoteInfo = TRMosaicLayout;
+		};
+		BFAF1FF41D2759D800DA4FEF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFAF1FEE1D2759D800DA4FEF /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 591AC9A3655CD834E6AA7373037CEC5B;
+			remoteInfo = "Pods-TRMosaicLayout_Example";
+		};
+		BFAF1FF61D2759D800DA4FEF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFAF1FEE1D2759D800DA4FEF /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6FF0DE38449D4CD822FFB70741CEC1D9;
+			remoteInfo = "Pods-TRMosaicLayout_Tests";
+		};
+		BFAF1FF81D2759D800DA4FEF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFAF1FEE1D2759D800DA4FEF /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3CBE41BE030055BD952709A0548A3D17;
 			remoteInfo = TRMosaicLayout;
 		};
 /* End PBXContainerItemProxy section */
@@ -35,7 +56,6 @@
 		607FACD01AFB9204008FA782 /* TRMosaicLayout_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TRMosaicLayout_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		607FACD71AFB9204008FA782 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		607FACDA1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		607FACDC1AFB9204008FA782 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		607FACDF1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -44,6 +64,8 @@
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		6C3C84ADD8703237720DAA60 /* Pods_TRMosaicLayout_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TRMosaicLayout_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7CC935F4F35463C77300DCB /* Pods-TRMosaicLayout_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TRMosaicLayout_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TRMosaicLayout_Tests/Pods-TRMosaicLayout_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		BF2FE1881D2753AF00094919 /* TRCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRCollectionViewController.swift; sourceTree = "<group>"; };
+		BFAF1FEE1D2759D800DA4FEF /* Pods.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Pods.xcodeproj; path = Pods/Pods.xcodeproj; sourceTree = "<group>"; };
 		C23F83B87EC869807E2B5656 /* Pods_TRMosaicLayout_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TRMosaicLayout_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C24BFB56749CBE2907FD5507 /* TRMosaicLayout.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = TRMosaicLayout.podspec; path = ../TRMosaicLayout.podspec; sourceTree = "<group>"; };
 		D1396DF60C1EFEF3B34AEC46 /* Pods-TRMosaicLayout_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TRMosaicLayout_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TRMosaicLayout_Example/Pods-TRMosaicLayout_Example.debug.xcconfig"; sourceTree = "<group>"; };
@@ -83,6 +105,7 @@
 		607FACC71AFB9204008FA782 = {
 			isa = PBXGroup;
 			children = (
+				BFAF1FEE1D2759D800DA4FEF /* Pods.xcodeproj */,
 				607FACF51AFB993E008FA782 /* Podspec Metadata */,
 				607FACD21AFB9204008FA782 /* Example for TRMosaicLayout */,
 				607FACE81AFB9204008FA782 /* Tests */,
@@ -105,8 +128,8 @@
 			isa = PBXGroup;
 			children = (
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
-				607FACD71AFB9204008FA782 /* ViewController.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
+				BF2FE1881D2753AF00094919 /* TRCollectionViewController.swift */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
 				607FACD31AFB9204008FA782 /* Supporting Files */,
@@ -148,6 +171,16 @@
 				3685DF00FEDE6CB9D093FE20 /* LICENSE */,
 			);
 			name = "Podspec Metadata";
+			sourceTree = "<group>";
+		};
+		BFAF1FEF1D2759D800DA4FEF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BFAF1FF51D2759D800DA4FEF /* Pods_TRMosaicLayout_Example.framework */,
+				BFAF1FF71D2759D800DA4FEF /* Pods_TRMosaicLayout_Tests.framework */,
+				BFAF1FF91D2759D800DA4FEF /* TRMosaicLayout.framework */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		F2F1B1D5BB5AF46BFA43D016 /* Frameworks */ = {
@@ -233,6 +266,12 @@
 			mainGroup = 607FACC71AFB9204008FA782;
 			productRefGroup = 607FACD11AFB9204008FA782 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = BFAF1FEF1D2759D800DA4FEF /* Products */;
+					ProjectRef = BFAF1FEE1D2759D800DA4FEF /* Pods.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				607FACCF1AFB9204008FA782 /* TRMosaicLayout_Example */,
@@ -240,6 +279,30 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		BFAF1FF51D2759D800DA4FEF /* Pods_TRMosaicLayout_Example.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Pods_TRMosaicLayout_Example.framework;
+			remoteRef = BFAF1FF41D2759D800DA4FEF /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		BFAF1FF71D2759D800DA4FEF /* Pods_TRMosaicLayout_Tests.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Pods_TRMosaicLayout_Tests.framework;
+			remoteRef = BFAF1FF61D2759D800DA4FEF /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		BFAF1FF91D2759D800DA4FEF /* TRMosaicLayout.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = TRMosaicLayout.framework;
+			remoteRef = BFAF1FF81D2759D800DA4FEF /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		607FACCE1AFB9204008FA782 /* Resources */ = {
@@ -359,7 +422,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
+				BF2FE1891D2753AF00094919 /* TRCollectionViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

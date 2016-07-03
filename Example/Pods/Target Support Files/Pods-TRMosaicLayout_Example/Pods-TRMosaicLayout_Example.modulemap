@@ -1,0 +1,6 @@
+framework module Pods_TRMosaicLayout_Example {
+  umbrella header "Pods-TRMosaicLayout_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}
