@@ -7,11 +7,13 @@
 
 A mosaic collection view layout inspired by [Lightbox's Algorithm](http://blog.vjeux.com/2012/image/image-layout-algorithm-lightbox.html). This is a swift implementation/extension of [@fmitech's FMMosaicLayout](https://github.com/fmitech/FMMosaicLayout).  
 
-Similar implementation used by @snapchat
-<img src="demo/snapchat.gif"/>
+**TRMosaicLayout implementation**
 
-TRMosaicLayout implementation
-<img src="demo/demo.gif"/>
+<img src="Demo/demo.gif"/>
+
+**Similar implementation used by [@snapchat](https://github.com/snapchat)**
+
+<img src="Demo/snapchat.gif"/>
 
 ## Why use this
 * TRMosaicLayout is great for displaying images that are in portrait or have a similar aspect ratio
@@ -23,10 +25,12 @@ TRMosaicLayout implementation
 
 ## Tutorial
 
+Add `TRMosaicLayout` to your podfile
 ```
 pod 'TRMosaicLayout'
 ```
 
+Then, run in your terminal
 ```
 $ pod install 
 ```
