@@ -43,7 +43,6 @@ class TRCollectionViewController: UICollectionViewController {
         let imageView = UIImageView(image: image)
         
         imageView.frame = cell.frame
-        
         cell.backgroundView = imageView
         
         return cell
