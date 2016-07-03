@@ -1,9 +1,9 @@
 {
   "name": "TRMosaicLayout",
   "version": "0.1.0",
-  "summary": "A short description of TRMosaicLayout.",
-  "description": "TODO: Add long description of the pod here.",
-  "homepage": "https://github.com/<GITHUB_USERNAME>/TRMosaicLayout",
+  "summary": "A mosaic collection view layout using three columns",
+  "description": "A mosaic collection view layout using three columns. Useful for showing books, magazines, and any other types \nof images that may follow the 8x11 format or other similar formats. Extending FMMosaicLayout and LightBox's algorithm\nto accomadate for a three column based mosaic layout. A great example of this is Snapchat's Discover Feed",
+  "homepage": "https://github.com/vinnyoodles/TRMosaicLayout",
   "license": {
     "type": "MIT",
     "file": "LICENSE"
@@ -12,7 +12,7 @@
     "Vincent Le": "vinnyoodles@gmail.com"
   },
   "source": {
-    "git": "https://github.com/<GITHUB_USERNAME>/TRMosaicLayout.git",
+    "git": "https://github.com/vinnyoodles/TRMosaicLayout.git",
     "tag": "0.1.0"
   },
   "platforms": {
