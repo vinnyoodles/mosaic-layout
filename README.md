@@ -1,6 +1,6 @@
 # TRMosaicLayout
 
-[![CI Status](http://img.shields.io/travis/Vincent Le/TRMosaicLayout.svg?style=flat)](https://travis-ci.org/Vincent Le/TRMosaicLayout)
+[![CI Status](http://img.shields.io/travis/vinnyoodles/TRMosaicLayout.svg?style=flat)](https://travis-ci.org/vinnyoodles/TRMosaicLayout)
 [![Version](https://img.shields.io/cocoapods/v/TRMosaicLayout.svg?style=flat)](http://cocoapods.org/pods/TRMosaicLayout)
 [![License](https://img.shields.io/cocoapods/l/TRMosaicLayout.svg?style=flat)](http://cocoapods.org/pods/TRMosaicLayout)
 [![Platform](https://img.shields.io/cocoapods/p/TRMosaicLayout.svg?style=flat)](http://cocoapods.org/pods/TRMosaicLayout)
