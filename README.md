@@ -5,7 +5,8 @@
 [![License](https://img.shields.io/cocoapods/l/TRMosaicLayout.svg?style=flat)](http://cocoapods.org/pods/TRMosaicLayout)
 [![Platform](https://img.shields.io/cocoapods/p/TRMosaicLayout.svg?style=flat)](http://cocoapods.org/pods/TRMosaicLayout)
 
-A mosaic collection view layout inspired by [Lightbox's Algorithm](http://blog.vjeux.com/2012/image/image-layout-algorithm-lightbox.html). This is a swift implementation/extension of [@fmitech's FMMosaicLayout](https://github.com/fmitech/FMMosaicLayout).  
+A mosaic collection view layout inspired by [Lightbox's Algorithm](http://blog.vjeux.com/2012/image/image-layout-algorithm-lightbox.html). This is a swift implementation/extension of [@fmitech's FMMosaicLayout](https://github.com/fmitech/FMMosaicLayout). The standard `UICollectionViewFlowLayout` can be a boring presentation in your app, but TRMosaicLayout is a simple feature that will engage your users with your eyecatching content. If you don't believe me, checkout Snapchat's app and
+their awesome layout in their Discover feed.
 
 **TRMosaicLayout implementation**
 
