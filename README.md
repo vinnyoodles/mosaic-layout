@@ -27,17 +27,17 @@ their awesome layout in their Discover feed.
 ## Tutorial
 
 Add `TRMosaicLayout` to your podfile
-```
+```ruby
 pod 'TRMosaicLayout'
 ```
 
 Then, run in your terminal
-```
+```bash
 $ pod install 
 ```
 
 Create a subclass of `UICollectionViewController`
-```
+```swift
 import TRMosaicLayout
 
 class TRCollectionViewController: UICollectionViewController {
@@ -52,7 +52,7 @@ class TRCollectionViewController: UICollectionViewController {
 ```
 
 Extend your subclass of `UICollectionViewController` with `TRMosaicLayoutDelegate`
-```
+```swift
 extension TRCollectionViewController: TRMosaicLayoutDelegate {
 
   func collectionView(collectionView:UICollectionView, mosaicCellSizeTypeAtIndexPath indexPath:NSIndexPath) -> TRMosaicCellType {
@@ -75,9 +75,9 @@ extension TRCollectionViewController: TRMosaicLayoutDelegate {
 **The cell's aren't aligned properly**
 * Make sure the views you are adding to the cell have the correct frame
  
-```
+```swift
   let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath)
-let imageView = UIImageView(image: image)
+  let imageView = UIImageView(image: image)
   imageView.frame = cell.frame
   cell.backgroundView = imageView
   return cell
