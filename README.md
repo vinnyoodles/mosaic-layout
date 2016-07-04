@@ -39,7 +39,7 @@ To get the full benefits import `TRMosaicLayout` wherever you import UIKit
 
 ``` swift
 import UIKit
-import YourLibrary
+import TRMosaicLayout
 ```
 
 #### Manually
