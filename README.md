@@ -24,18 +24,29 @@ their awesome layout in their Discover feed.
   * Magazines
   * News articles
 
-## Tutorial
+## Installation
 
-Add `TRMosaicLayout` to your podfile
+#### CocoaPods
+You can use [CocoaPods](http://cocoapods.org/) to install `TRMosaicLayout` by adding it to your `Podfile`:
+
 ```ruby
+platform :ios, '8.0'
+use_frameworks!
 pod 'TRMosaicLayout'
 ```
 
-Then, run in your terminal
-```bash
-$ pod install 
+To get the full benefits import `TRMosaicLayout` wherever you import UIKit
+
+``` swift
+import UIKit
+import YourLibrary
 ```
 
+#### Manually
+1. Download and drop ```/TRMosaicLayout```folder in your project.  
+2. Congratulations!  
+
+## Implementation
 Create a subclass of `UICollectionViewController`
 ```swift
 import TRMosaicLayout
@@ -91,7 +102,7 @@ extension TRCollectionViewController: TRMosaicLayoutDelegate {
 * Use github's issue reporter on the right, this will you be your best bet as I'm on Github fairly regularly
 * Send me an email vinnyoodles@gmail.com
 
-## Updates
+## Release History
   * 0.1.0 First release on CocoaPods
 
 ## Contributions
@@ -104,4 +115,4 @@ extension TRCollectionViewController: TRMosaicLayoutDelegate {
 
 ## License
 
-  TRMosaicLayout is available under the MIT license. See the LICENSE file for more info.
+  TRMosaicLayout is available under the ```MIT``` license. See the ```LICENSE``` file for more info.
