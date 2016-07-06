@@ -1,6 +1,7 @@
 # TRMosaicLayout
 
 [![CI Status](http://img.shields.io/travis/vinnyoodles/TRMosaicLayout.svg?style=flat)](https://travis-ci.org/vinnyoodles/TRMosaicLayout)
+[![codebeat badge](https://codebeat.co/badges/dd08069e-ec9e-42d8-ba4c-9919b4c2ccfb)](https://codebeat.co/projects/github-com-vinnyoodles-trmosaiclayout)
 [![Version](https://img.shields.io/cocoapods/v/TRMosaicLayout.svg?style=flat)](http://cocoapods.org/pods/TRMosaicLayout)
 [![License](https://img.shields.io/cocoapods/l/TRMosaicLayout.svg?style=flat)](http://cocoapods.org/pods/TRMosaicLayout)
 [![Platform](https://img.shields.io/cocoapods/p/TRMosaicLayout.svg?style=flat)](http://cocoapods.org/pods/TRMosaicLayout)
@@ -35,10 +36,9 @@ use_frameworks!
 pod 'TRMosaicLayout'
 ```
 
-To get the full benefits import `TRMosaicLayout` wherever you import UIKit
+Then, import `TRMosaicLayout`
 
 ``` swift
-import UIKit
 import TRMosaicLayout
 ```
 
