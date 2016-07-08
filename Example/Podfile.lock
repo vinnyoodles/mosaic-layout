@@ -1,7 +1,23 @@
 PODS:
+  - AFNetworking (3.1.0):
+    - AFNetworking/NSURLSession (= 3.1.0)
+    - AFNetworking/Reachability (= 3.1.0)
+    - AFNetworking/Security (= 3.1.0)
+    - AFNetworking/Serialization (= 3.1.0)
+    - AFNetworking/UIKit (= 3.1.0)
+  - AFNetworking/NSURLSession (3.1.0):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (3.1.0)
+  - AFNetworking/Security (3.1.0)
+  - AFNetworking/Serialization (3.1.0)
+  - AFNetworking/UIKit (3.1.0):
+    - AFNetworking/NSURLSession
   - TRMosaicLayout (0.1.0)
 
 DEPENDENCIES:
+  - AFNetworking
   - TRMosaicLayout (from `../`)
 
 EXTERNAL SOURCES:
@@ -9,8 +25,9 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
+  AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   TRMosaicLayout: 1cd6800e0c976263b7fd7ff58a9ed9be00fc0645
 
-PODFILE CHECKSUM: 50254368379184c1bee3ab77c98376fd46a20b1c
+PODFILE CHECKSUM: e96d6eea1053de5262ca744bcf605356ee8c9f04
 
 COCOAPODS: 1.0.1
