@@ -9,26 +9,26 @@
 import UIKit
 
 public enum TRMosaicCellType {
-    case Big
-    case Small
+    case big
+    case small
 }
 
 public protocol TRMosaicLayoutDelegate {
     
-    func collectionView(collectionView:UICollectionView, mosaicCellSizeTypeAtIndexPath indexPath:NSIndexPath) -> TRMosaicCellType
+    func collectionView(_ collectionView:UICollectionView, mosaicCellSizeTypeAtIndexPath indexPath:IndexPath) -> TRMosaicCellType
     
-    func collectionView(collectionView:UICollectionView, layout collectionViewLayout: TRMosaicLayout, insetAtSection:Int) -> UIEdgeInsets
+    func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout: TRMosaicLayout, insetAtSection:Int) -> UIEdgeInsets
     
     func heightForSmallMosaicCell() -> CGFloat
 }
 
-public class TRMosaicLayout: UICollectionViewLayout {
+open class TRMosaicLayout: UICollectionViewLayout {
     
-    public var delegate:TRMosaicLayoutDelegate!
+    open var delegate:TRMosaicLayoutDelegate!
     
     var columns = TRMosaicColumns()
     
-    var cachedCellLayoutAttributes = [NSIndexPath:UICollectionViewLayoutAttributes]()
+    var cachedCellLayoutAttributes = [IndexPath:UICollectionViewLayoutAttributes]()
     
     let numberOfColumnsInSection = 3
     
@@ -38,8 +38,8 @@ public class TRMosaicLayout: UICollectionViewLayout {
     
     // MARK: UICollectionViewLayout Implementation
     
-    override public func prepareLayout() {
-        super.prepareLayout()
+    override open func prepare() {
+        super.prepare()
         
         resetLayoutState()
         configureMosaicLayout()
@@ -51,11 +51,11 @@ public class TRMosaicLayout: UICollectionViewLayout {
      */
     func configureMosaicLayout() {
         // Queue containing cells that have yet to be added due to column constraints
-        var smallCellIndexPathBuffer = [NSIndexPath]()
+        var smallCellIndexPathBuffer = [IndexPath]()
         
         var lastBigCellOnLeftSide = false
         // Loops through all items in the first section, this layout has only one section
-        for cellIndex in 0..<collectionView!.numberOfItemsInSection(0) {
+        for cellIndex in 0..<collectionView!.numberOfItems(inSection: 0) {
             
             (lastBigCellOnLeftSide, smallCellIndexPathBuffer) = createCellLayout(withIndexPath: cellIndex,
                                                                                  bigCellSide: lastBigCellOnLeftSide,
@@ -77,16 +77,16 @@ public class TRMosaicLayout: UICollectionViewLayout {
      
      - returns: tuple containing cellSide and cellBuffer, only one of which will be mutated
      */
-    func createCellLayout(withIndexPath index: Int, bigCellSide: Bool, cellBuffer: [NSIndexPath]) -> (Bool, [NSIndexPath]) {
-        let cellIndexPath = NSIndexPath(forItem: index, inSection: 0)
+    func createCellLayout(withIndexPath index: Int, bigCellSide: Bool, cellBuffer: [IndexPath]) -> (Bool, [IndexPath]) {
+        let cellIndexPath = IndexPath(item: index, section: 0)
         let cellType:TRMosaicCellType = mosaicCellType(index: cellIndexPath)
         
         var newBuffer = cellBuffer
         var newSide = bigCellSide
         
-        if cellType == .Big {
+        if cellType == .big {
             newSide = createBigCellLayout(withIndexPath: cellIndexPath, cellSide: bigCellSide)
-        } else if cellType == .Small {
+        } else if cellType == .small {
             newBuffer = createSmallCellLayout(withIndexPath: cellIndexPath, buffer: newBuffer)
         }
         return (newSide, newBuffer)
@@ -96,16 +96,16 @@ public class TRMosaicLayout: UICollectionViewLayout {
      Creates new layout for the big cell at specified index path
      - returns: returns new cell side
      */
-    func createBigCellLayout(withIndexPath indexPath:NSIndexPath, cellSide: Bool) -> Bool {
-            addBigCellLayout(atIndexPath: indexPath, atColumn: cellSide ? 1 : 0)
-            return !cellSide
+    func createBigCellLayout(withIndexPath indexPath:IndexPath, cellSide: Bool) -> Bool {
+        addBigCellLayout(atIndexPath: indexPath, atColumn: cellSide ? 1 : 0)
+        return !cellSide
     }
     
     /**
      Creates new layout for the small cell at specified index path
      - returns: returns new cell buffer
      */
-    func createSmallCellLayout(withIndexPath indexPath:NSIndexPath, buffer: [NSIndexPath]) -> [NSIndexPath] {
+    func createSmallCellLayout(withIndexPath indexPath:IndexPath, buffer: [IndexPath]) -> [IndexPath] {
         var newBuffer = buffer
         newBuffer.append(indexPath)
         if newBuffer.count >= 2 {
@@ -122,18 +122,21 @@ public class TRMosaicLayout: UICollectionViewLayout {
     /**
      Returns the entire content view of the collection view
      */
-    override public func collectionViewContentSize() -> CGSize {
-        let height = columns.smallestColumn.columnHeight
-        return CGSizeMake(contentWidth, height)
+    override open var collectionViewContentSize: CGSize {
+        get {
+            
+            let height = columns.smallestColumn.columnHeight
+            return CGSize(width: contentWidth, height: height)
+        }
     }
     
     /**
      Returns all layout attributes within the given rectangle
      */
-    override public func layoutAttributesForElementsInRect(rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
+    override open func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
         var attributesInRect = [UICollectionViewLayoutAttributes]()
         cachedCellLayoutAttributes.forEach {
-            if CGRectIntersectsRect(rect, $1.frame) {
+            if rect.intersects($1.frame) {
                 attributesInRect.append($1)
             }
         }
@@ -147,8 +150,8 @@ public class TRMosaicLayout: UICollectionViewLayout {
      Adds the new layout to cache
      Updates the column heights for each effected column
      */
-    func addBigCellLayout(atIndexPath indexPath:NSIndexPath, atColumn column:Int) {
-        let cellHeight = layoutAttributes(withCellType: .Big, indexPath: indexPath, atColumn: column)
+    func addBigCellLayout(atIndexPath indexPath:IndexPath, atColumn column:Int) {
+        let cellHeight = layoutAttributes(withCellType: .big, indexPath: indexPath, atColumn: column)
         
         columns[column].appendToColumn(withHeight: cellHeight)
         columns[column + 1].appendToColumn(withHeight: cellHeight)
@@ -159,8 +162,8 @@ public class TRMosaicLayout: UICollectionViewLayout {
      Adds the new layout to cache
      Updates the column heights for each effected column
      */
-    func addSmallCellLayout(atIndexPath indexPath:NSIndexPath, atColumn column:Int) {
-        let cellHeight = layoutAttributes(withCellType: .Small, indexPath: indexPath, atColumn: column)
+    func addSmallCellLayout(atIndexPath indexPath:IndexPath, atColumn column:Int) {
+        let cellHeight = layoutAttributes(withCellType: .small, indexPath: indexPath, atColumn: column)
         
         columns[column].appendToColumn(withHeight: cellHeight)
     }
@@ -174,8 +177,8 @@ public class TRMosaicLayout: UICollectionViewLayout {
      
      - returns: new cell height from layout
      */
-    func layoutAttributes(withCellType type:TRMosaicCellType, indexPath:NSIndexPath, atColumn column:Int) -> CGFloat {
-        let layoutAttributes = UICollectionViewLayoutAttributes(forCellWithIndexPath: indexPath)
+    func layoutAttributes(withCellType type:TRMosaicCellType, indexPath:IndexPath, atColumn column:Int) -> CGFloat {
+        let layoutAttributes = UICollectionViewLayoutAttributes(forCellWith: indexPath)
         let frame = mosaicCellRect(withType: type, atIndexPath: indexPath, atColumn: column)
         
         layoutAttributes.frame = frame
@@ -198,7 +201,7 @@ public class TRMosaicLayout: UICollectionViewLayout {
      
      - returns: Bounding rectangle
      */
-    func mosaicCellRect(withType type: TRMosaicCellType, atIndexPath indexPath:NSIndexPath, atColumn column:Int) -> CGRect {
+    func mosaicCellRect(withType type: TRMosaicCellType, atIndexPath indexPath:IndexPath, atColumn column:Int) -> CGRect {
         var cellHeight = cellContentHeightFor(mosaicCellType: type)
         var cellWidth = cellContentWidthFor(mosaicCellType: type)
         
@@ -213,7 +216,7 @@ public class TRMosaicLayout: UICollectionViewLayout {
         cellWidth -= sectionInset.right
         cellHeight -= sectionInset.bottom
         
-        return CGRectMake(originX, originY, cellWidth, cellHeight)
+        return CGRect(x: originX, y: originY, width: cellWidth, height: cellHeight)
     }
     
     /**
@@ -225,7 +228,7 @@ public class TRMosaicLayout: UICollectionViewLayout {
      */
     func cellContentHeightFor(mosaicCellType cellType:TRMosaicCellType) -> CGFloat {
         let height = delegate.heightForSmallMosaicCell()
-        if cellType == .Big {
+        if cellType == .big {
             return height * 2
         }
         return height
@@ -240,7 +243,7 @@ public class TRMosaicLayout: UICollectionViewLayout {
      */
     func cellContentWidthFor(mosaicCellType cellType:TRMosaicCellType) -> CGFloat {
         let width = contentWidth / 3
-        if cellType == .Big {
+        if cellType == .big {
             return width * 2
         }
         return width
@@ -253,11 +256,11 @@ public class TRMosaicLayout: UICollectionViewLayout {
      
      - returns: True if layout needs update
      */
-    override public func shouldInvalidateLayoutForBoundsChange(newBounds: CGRect) -> Bool {
+    override open func shouldInvalidateLayout(forBoundsChange newBounds: CGRect) -> Bool {
         let currentBounds:CGRect = self.collectionView!.bounds
         
-        if CGSizeEqualToSize(currentBounds.size, newBounds.size) {
-            self.prepareLayout()
+        if currentBounds.size.equalTo(newBounds.size) {
+            self.prepare()
             return true
         }
         
@@ -271,7 +274,7 @@ public class TRMosaicLayout: UICollectionViewLayout {
      
      - returns: Cell type
      */
-    func mosaicCellType(index indexPath:NSIndexPath) -> TRMosaicCellType {
+    func mosaicCellType(index indexPath:IndexPath) -> TRMosaicCellType {
         return delegate.collectionView(collectionView!, mosaicCellSizeTypeAtIndexPath:indexPath)
     }
     
@@ -305,6 +308,6 @@ extension TRMosaicLayout {
      */
     func resetLayoutState() {
         columns = TRMosaicColumns()
-        cachedCellLayoutAttributes = [NSIndexPath:UICollectionViewLayoutAttributes]()
+        cachedCellLayoutAttributes = [IndexPath:UICollectionViewLayoutAttributes]()
     }
 }

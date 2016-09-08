@@ -21,7 +21,7 @@ class TRCollectionViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.collectionView!.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         
         let mosaicLayout = TRMosaicLayout()
         self.collectionView?.collectionViewLayout = mosaicLayout
@@ -31,19 +31,19 @@ class TRCollectionViewController: UICollectionViewController {
     }
     
     func fetchBooks() {
-        let url = NSURL(string: "https://www.googleapis.com/books/v1/volumes?q=subject:science%20fiction")
-        let request = NSURLRequest(URL: url!)
-        let session = NSURLSession(
-            configuration: NSURLSessionConfiguration.defaultSessionConfiguration(),
+        let url = URL(string: "https://www.googleapis.com/books/v1/volumes?q=subject:science%20fiction")
+        let request = URLRequest(url: url!)
+        let session = URLSession(
+            configuration: URLSessionConfiguration.default,
             delegate: nil,
-            delegateQueue:NSOperationQueue.mainQueue()
+            delegateQueue:OperationQueue.main
         )
-        let task : NSURLSessionDataTask = session.dataTaskWithRequest(request, completionHandler: { (data, response, error) in
+        let task : URLSessionDataTask = session.dataTask(with: request, completionHandler: { (data, response, error) in
             if let _ = data,
-                let responseDictionary = try! NSJSONSerialization.JSONObjectWithData( data!, options:[]) as? NSDictionary {
+                let responseDictionary = try! JSONSerialization.jsonObject( with: data!, options:[]) as? NSDictionary {
                 let items = responseDictionary["items"] as! [NSDictionary]
                 self.books = items.flatMap {
-                    $0.valueForKeyPath("volumeInfo.imageLinks.thumbnail") as! String
+                    $0.value(forKeyPath: "volumeInfo.imageLinks.thumbnail") as? String
                 }
                 self.collectionView?.reloadData()
             }
@@ -52,21 +52,21 @@ class TRCollectionViewController: UICollectionViewController {
     }
     
     
-    override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+    override func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
 
 
-    override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 100
     }
 
-    override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath)
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
         
         if !books.isEmpty {
             let imageView = UIImageView()
-            imageView.setImageWithURL(NSURL(string: books[indexPath.item % books.count])!, placeholderImage: nil)
+            imageView.setImageWith(URL(string: books[indexPath.item % books.count])!, placeholderImage: nil)
             imageView.frame = cell.frame
             cell.backgroundView = imageView
         }
@@ -77,11 +77,11 @@ class TRCollectionViewController: UICollectionViewController {
 
 extension TRCollectionViewController: TRMosaicLayoutDelegate {
     
-    func collectionView(collectionView:UICollectionView, mosaicCellSizeTypeAtIndexPath indexPath:NSIndexPath) -> TRMosaicCellType {
-        return indexPath.item % 3 == 0 ? TRMosaicCellType.Big : TRMosaicCellType.Small
+    func collectionView(_ collectionView:UICollectionView, mosaicCellSizeTypeAtIndexPath indexPath:IndexPath) -> TRMosaicCellType {
+        return indexPath.item % 3 == 0 ? TRMosaicCellType.big : TRMosaicCellType.small
     }
     
-    func collectionView(collectionView:UICollectionView, layout collectionViewLayout: TRMosaicLayout, insetAtSection:Int) -> UIEdgeInsets {
+    func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout: TRMosaicLayout, insetAtSection:Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 3, left: 3, bottom: 3, right: 3)
     }
     

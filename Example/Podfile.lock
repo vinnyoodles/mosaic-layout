@@ -14,7 +14,7 @@ PODS:
   - AFNetworking/Serialization (3.1.0)
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
-  - TRMosaicLayout (0.1.0)
+  - TRMosaicLayout (0.2.0)
 
 DEPENDENCIES:
   - AFNetworking
@@ -26,8 +26,8 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
-  TRMosaicLayout: 1cd6800e0c976263b7fd7ff58a9ed9be00fc0645
+  TRMosaicLayout: 2f1af0d457377ebc135912b658a65040be9e1651
 
 PODFILE CHECKSUM: e96d6eea1053de5262ca744bcf605356ee8c9f04
 
-COCOAPODS: 1.0.1
+COCOAPODS: 1.1.0.beta.2
