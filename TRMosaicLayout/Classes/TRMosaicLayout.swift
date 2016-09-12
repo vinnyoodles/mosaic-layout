@@ -143,6 +143,15 @@ open class TRMosaicLayout: UICollectionViewLayout {
         return attributesInRect
     }
     
+    /**
+     Returns all layout attributes for the current indexPath
+     */
+    override open func layoutAttributesForItem(at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
+        
+        return self.cachedCellLayoutAttributes[indexPath]
+
+    }
+    
     // MARK: Layout
     
     /**
