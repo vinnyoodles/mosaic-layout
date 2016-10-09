@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'TRMosaicLayout'
-  s.version          = '0.2.0'
+  s.version          = '1.0.0'
   s.summary          = 'A mosaic collection view layout using three columns' 
 
   s.description      = <<-DESC
@@ -15,7 +15,7 @@ Pod::Spec.new do |s|
   s.author           = { 'Vincent Le' => 'vinnyoodles@gmail.com' }
   s.source           = { :git => 'https://github.com/vinnyoodles/TRMosaicLayout.git', :tag => s.version.to_s }
 
-  s.ios.deployment_target = '8.0'
+  s.ios.deployment_target = '9.0'
 
   s.source_files = 'TRMosaicLayout/Classes/**/*'
 end
