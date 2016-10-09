@@ -103,6 +103,7 @@ extension TRCollectionViewController: TRMosaicLayoutDelegate {
 * Send me an email vinnyoodles@gmail.com
 
 ## Release History
+  * 1.0.0 Update to Swift 3
   * 0.1.0 First release on CocoaPods
 
 ## Contributions
