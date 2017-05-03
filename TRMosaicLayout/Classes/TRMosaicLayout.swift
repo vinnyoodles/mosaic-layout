@@ -8,12 +8,12 @@
 
 import UIKit
 
-public enum TRMosaicCellType {
+@objc public enum TRMosaicCellType: Int {
     case big
     case small
 }
 
-public protocol TRMosaicLayoutDelegate {
+@objc public protocol TRMosaicLayoutDelegate {
     
     func collectionView(_ collectionView:UICollectionView, mosaicCellSizeTypeAtIndexPath indexPath:IndexPath) -> TRMosaicCellType
     
