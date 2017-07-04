@@ -11,7 +11,7 @@ struct TRMosaicColumns {
     var columns:[TRMosaicColumn]
     
     var smallestColumn:TRMosaicColumn {
-        return columns.sorted().first!
+        return columns.sorted().last!
     }
     
     init() {
