@@ -55,11 +55,13 @@ open class TRMosaicLayout: UICollectionViewLayout {
         
         var lastBigCellOnLeftSide = false
         // Loops through all items in the first section, this layout has only one section
-        for cellIndex in 0..<collectionView!.numberOfItems(inSection: 0) {
-            
-            (lastBigCellOnLeftSide, smallCellIndexPathBuffer) = createCellLayout(withIndexPath: cellIndex,
-                                                                                 bigCellSide: lastBigCellOnLeftSide,
-                                                                                 cellBuffer: smallCellIndexPathBuffer)
+        if let collectionView = collectionView, collectionView.numberOfSections > 0 {
+            for cellIndex in 0..<collectionView.numberOfItems(inSection: 0) {
+
+                (lastBigCellOnLeftSide, smallCellIndexPathBuffer) = createCellLayout(withIndexPath: cellIndex,
+                                                                                     bigCellSide: lastBigCellOnLeftSide,
+                                                                                     cellBuffer: smallCellIndexPathBuffer)
+            }
         }
         
         if !smallCellIndexPathBuffer.isEmpty {
@@ -79,7 +81,7 @@ open class TRMosaicLayout: UICollectionViewLayout {
      */
     func createCellLayout(withIndexPath index: Int, bigCellSide: Bool, cellBuffer: [IndexPath]) -> (Bool, [IndexPath]) {
         let cellIndexPath = IndexPath(item: index, section: 0)
-        let cellType:TRMosaicCellType = mosaicCellType(index: cellIndexPath)
+        let cellType: TRMosaicCellType = mosaicCellType(index: cellIndexPath)
         
         var newBuffer = cellBuffer
         var newSide = bigCellSide
