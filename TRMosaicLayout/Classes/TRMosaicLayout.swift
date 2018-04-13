@@ -13,7 +13,7 @@ public enum TRMosaicCellType {
     case small
 }
 
-public protocol TRMosaicLayoutDelegate {
+public protocol TRMosaicLayoutDelegate: class {
     
     func collectionView(_ collectionView:UICollectionView, mosaicCellSizeTypeAtIndexPath indexPath:IndexPath) -> TRMosaicCellType
     
@@ -24,7 +24,7 @@ public protocol TRMosaicLayoutDelegate {
 
 open class TRMosaicLayout: UICollectionViewLayout {
     
-    open var delegate:TRMosaicLayoutDelegate!
+    open weak var delegate:TRMosaicLayoutDelegate!
     
     var columns = TRMosaicColumns()
     
