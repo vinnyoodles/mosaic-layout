@@ -6,6 +6,8 @@
 //
 //
 
+import UIKit
+
 struct TRMosaicColumns {
     
     var columns:[TRMosaicColumn]
